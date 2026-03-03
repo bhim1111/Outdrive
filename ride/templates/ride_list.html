@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Your Rides</h2>
+                <a href="{% url 'ride_create' %}" class="btn btn-primary">+ Create New Ride</a>
+            </div>
+            
+            {% if rides %}
+            <div class="table-responsive">
+                <table class="table table-hover shadow-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Pickup Location</th>
+                            <th>Dropoff Location</th>
+                            <th>Fare (NPR)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ride in rides %}
+                        <tr>
+                            <td>{{ ride.id }}</td>
+                            <td>{{ ride.pickup_location }}</td>
+                            <td>{{ ride.dropoff_location }}</td>
+                            <td>{{ ride.fare }}</td>
+                            <td>
+                                <a href="{% url 'ride_update' ride.id %}" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{% url 'ride_delete' ride.id %}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                <p>No rides yet. <a href="{% url 'ride_create' %}">Create your first ride</a>!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

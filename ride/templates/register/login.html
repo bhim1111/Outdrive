@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-card-wrapper">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Login</h2>
+            </div>
+
+            <div class="login-card-body">
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    {% endif %}
+                    {{ form.as_p }}
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+
+                <p class="login-register-text">
+                    Don't have an account? <a href="#">Register here</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
