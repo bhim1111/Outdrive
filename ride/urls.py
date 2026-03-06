@@ -1,7 +1,7 @@
 
 from django.urls import path
 
-from .views import HomeView, RideDeleteView, RideListView, RideUpdateView, RideCreateView
+from .views import AcceptRideView, HomeView, RideDeleteView, RideListView, RideUpdateView, RideCreateView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -11,5 +11,6 @@ urlpatterns = [
     
     path('ride_update/<int:pk>/', RideUpdateView.as_view(), name='ride_update'),
     path('ride_delete/<int:pk>/', RideDeleteView.as_view(), name='ride_delete'),
+    path('ride_accept/<int:pk>/', AcceptRideView.as_view(), name='ride_accept'),
    
 ]

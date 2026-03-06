@@ -1,10 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Ride
-from django.views.generic import CreateView, ListView, TemplateView, UpdateView, DeleteView
+from .models import Driver, Ride
+from django.views.generic import CreateView, ListView, TemplateView, UpdateView, DeleteView, View
 
 
 
@@ -13,7 +13,7 @@ from django.views.generic import CreateView, ListView, TemplateView, UpdateView,
 class HomeView(TemplateView):
    template_name = 'home.html'
    def get(self,request):
-         rides = Ride.objects.all()
+         rides = Ride.objects.all( )
          return render(request, self.template_name, {'rides': rides})
    
 
@@ -22,11 +22,31 @@ class RideListView(LoginRequiredMixin, ListView):
     model = Ride
     template_name = 'ride_list.html'
     context_object_name = 'rides'
-
+    
+    
     def get_queryset(self):
-        return Ride.objects.filter(user=self.request.user)
+        return Ride.objects.filter(status = "pending")
+            
+            
+           
+            
+            
+class AcceptRideView(View):
+    model = Ride
+    fields = []
+    
+    def get(self, request, *args, **kwargs):
+        ride = Ride.objects.get(pk=kwargs['pk'])
+        driver = Driver.objects.filter(user=request.user).first()
+        if not driver:
+         return HttpResponse("Only drivers can accept rides")
+        ride.driver = driver
+        ride.status = 'accepted'
+        ride.save()
+        return redirect("ride_list")
     
     
+   
     
 class RideCreateView(LoginRequiredMixin, CreateView):
     model = Ride

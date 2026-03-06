@@ -1,59 +1,219 @@
-/* Global */
-body{
-    margin:0;
+/* ========================================
+   GLOBAL STYLES
+======================================== */
+
+body {
+    margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
 }
 
-/* Hero Section */
-.hero{
-    height:90vh;
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logout Button */
+.logout-btn {
+    background: linear-gradient(135deg, #ff4d4d, #d90429);
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #e60000, #b00020);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   HERO SECTION (Home Page)
+======================================== */
+
+.hero {
+    height: 90vh;
     background: linear-gradient(rgba(0,0,0,0.6),
                 rgba(0,0,0,0.6)),
                 url("../img/ibike-taxi.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 
-/* Hero Text */
-.hero h2{
-    font-size:60px;
-    font-weight:700;
+.hero h2 {
+    font-size: 60px;
+    font-weight: 700;
 }
 
-.hero p{
-    font-size:20px;
-    margin-bottom:30px;
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
-/* Button */
-.btn-ride{
-    background:#125ef6;
-    color:white;
-    padding:15px 35px;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:20px;
-    transition:0.3s;
+.btn-ride {
+    background: #125ef6;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
-.btn-ride:hover{
-    background:#0b5ed7;
-    transform:translateY(-3px);
+.btn-ride:hover {
+    background: #0b5ed7;
+    transform: translateY(-3px);
 }
 
-/* Navbar shadow */
-.navbar{
-    box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+/* ========================================
+   AUTH PAGES (Login & Register)
+======================================== */
+
+.auth-container,
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.login-container {
+    background: linear-gradient(135deg, #e9ecf6, #e5efeb);
+}
+
+.auth-card,
+.login-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.login-card-header {
+    background: #4e73df;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+}
+
+.auth-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-card input,
+.login-card input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.auth-btn,
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    transition: 0.3s;
+}
+
+.auth-btn {
+    background-color: #f8b400;
+}
+
+.auth-btn:hover {
+    background-color: #e0a800;
+}
+
+.login-btn {
+    background: #4e73df;
+}
+
+.login-btn:hover {
+    background: #2e59d9;
+}
+
+.auth-link,
+.login-register-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* ========================================
+   RIDE FORM (Create Ride Page)
+======================================== */
+
+.ride-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.ride-form label {
+    font-weight: bold;
+}
+
+.ride-form input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.ride-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ride-form button:hover {
+    background-color: #218838;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
 
 footer {
-    background-color: #222;   /* dark background */
+    background-color: #222;
     color: white;
     text-align: center;
     padding: 15px 0;
@@ -64,202 +224,74 @@ footer {
 
 
 
-/* Center container */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-}
 
-/* Card style */
-.auth-card {
-    background: white;
-    padding: 30px;
-    width: 350px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-}
+/* Dashboard background */
 
-/* Title */
-.auth-card h2 {
-    margin-bottom: 20px;
-}
-
-/* Form inputs */
-.auth-card input {
-    width: 100%;
-    padding: 8px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-/* Button */
-.auth-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #f8b400;   /* Taxi yellow 🚖 */
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.auth-btn:hover {
-    background-color: #e0a800;
-}
-
-/* Bottom link */
-.auth-link {
-    margin-top: 15px;
-    font-size: 14px;
+body{
+    background:#f5f7fb;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
+/* Dashboard title */
 
-
-/* Full page background */
-.login-container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #e9ecf6, #e5efeb);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Center wrapper */
-.login-card-wrapper {
-    width: 100%;
-    max-width: 420px;
-}
-
-/* Card */
-.login-card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    overflow: hidden;
-}
-
-/* Header */
-.login-card-header {
-    background: #4e73df;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-/* Body */
-.login-card-body {
-    padding: 30px;
-}
-
-/* Inputs */
-.login-card-body input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-}
-
-/* Button */
-.login-btn {
-    width: 100%;
-    padding: 10px;
-    background: #4e73df;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.login-btn:hover {
-    background: #2e59d9;
-}
-
-/* Register text */
-.login-register-text {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.login-register-text a {
-    color: #4e73df;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.login-register-text a:hover {
-    text-decoration: underline;
+.dashboard-title{
+    font-weight:700;
+    margin-bottom:30px;
+    color:#333;
 }
 
 
+/* Card styling */
 
-
-
-
-
-
-
-/* style.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 20px;
+.dashboard-card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
+
+/* Hover animation */
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
 }
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+/* Number inside card */
+
+.dashboard-card h2{
+    font-size:38px;
+    font-weight:bold;
+    margin-bottom:5px;
 }
 
-form label {
-    font-weight: bold;
+
+/* Text label */
+
+.dashboard-card p{
+    font-size:16px;
+    color:#666;
 }
 
-form input {
-    width: 100%;
-    padding: 8px 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+/* Card colors */
+
+.total{
+    border-top:4px solid #0d6efd;
 }
 
-form button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.pending{
+    border-top:4px solid #ffc107;
 }
 
-form button:hover {
-    background-color: #218838;
+.accepted{
+    border-top:4px solid #198754;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+.completed{
+    border-top:4px solid #6f42c1;
 }

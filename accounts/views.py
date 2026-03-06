@@ -1,7 +1,9 @@
 from django.contrib.auth.views import LoginView
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from .forms import LoginForm
-
+from .forms import LoginForm, RegisterForm
+from django.views import View
+from django.contrib.auth import login
 # Create your views here.
 
 class UserLoginView(LoginView):
@@ -16,7 +18,24 @@ class UserLoginView(LoginView):
         return reverse_lazy('home')
 
 
-
+class RegisterView(View):
+    def get(self,request):
+        form = RegisterForm()
+        return render(request, "register/register.html",{"form": form})
+    
+    
+    def post(self, request):
+        form=RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            
+            
+            login(request, user)
+            
+            return redirect("home")
+        return render(request,"register/register.html",{"form": form})
+            
+            
 
 
 
