@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h2>Search Rides</h2>
+
+    <!-- Search Box -->
+    <form method="GET">
+        <div class="search-box">
+            <input type="text"  name="q"  placeholder="Search pickup "> 
+            <input type="text"  name="q"  placeholder="dropoff location">
+            <button>Search</button>
+        </div>
+    </form>
+     {% for ride in rides %}
+    <!-- Ride List (Static Example) -->
+    
+    <div class="ride-card">
+        <h3>🚗 {{ ride.pickup_location }} → {{ ride.dropoff_location }}</h3>
+        <p>Status: {{ ride.status }}</p>
+        <a href="{% url 'ride_accept' ride.id %}">
+            <button>Accept Ride</button>
+        </a>
+    </div>
+
+   {% endfor %}
+
+</div>
+{% endblock content %}
+
+
+

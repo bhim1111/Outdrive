@@ -30,12 +30,19 @@
             
             <!-- Right side: Auth buttons -->
             <div class="d-flex align-items-center gap-2">
+                <form class="d-flex" action="{% url 'search' %}" role="search">
+                    
+                  
+                  <button class="btn btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i> Search</button>
+                </form>
+            
                 {% if user.is_authenticated %}
                     <span class="text-light me-2">Welcome, <strong>{{ user.username }}</strong></span>
                     <form method="post" action="{% url 'logout' %}" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger btn-sm px-3">
-                           <i class="bi bi-box-arrow-right"></i>  🚪 Logout
+                          🚪 Logout
                         </button>
                     </form>
                 {% else %}

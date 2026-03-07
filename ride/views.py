@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Driver, Ride
 from django.views.generic import CreateView, ListView, TemplateView, UpdateView, DeleteView, View
+from django.db.models import Q
 
 
 
@@ -77,3 +78,37 @@ class RideDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
     
 
+
+
+class CompleteRideView(LoginRequiredMixin, View):
+    def get(self, request, ride_id):
+        ride = Ride.objects.filter(id=ride_id).first()
+        if ride.driver and ride.driver.user == request.user:
+            ride.status = "completed"
+            ride.save()
+            return redirect('dashboard')
+        else:
+            return HttpResponse("Only the assigned driver can complete this ride.")
+        
+        
+        
+        
+        
+        
+
+
+class RideSearchView(LoginRequiredMixin, ListView):
+    model = Ride
+    template_name = 'ride_search.html'
+    context_object_name = 'rides'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+
+        if query:
+            return Ride.objects.filter(
+                Q(pickup_location__icontains=query) |
+                Q(dropoff_location__icontains=query)
+            )
+
+        return Ride.objects.all()

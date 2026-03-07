@@ -28,10 +28,11 @@
                             <td>{{ ride.pickup_location }}</td>
                             <td>{{ ride.dropoff_location }}</td>
                             <td>{{ ride.fare }}</td>
+                            <td>{{ ride.status }}</td>
                             <td>
                                 <a href="{% url 'ride_update' ride.id %}" class="btn btn-sm btn-warning">Edit</a>
                                 <a href="{% url 'ride_delete' ride.id %}" class="btn btn-sm btn-danger">Delete</a>
-                                 <a href="{% url 'ride_accept' ride.id %}" class="btn btn-sm btn-success">Accept Ride</a>
+                                <a href="{% url 'ride_accept' ride.id %}" class="btn btn-sm btn-success">Accept Ride</a>
                                                                           
                                                                                             
                             </td>
