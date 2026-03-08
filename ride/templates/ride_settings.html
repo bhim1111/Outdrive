@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+
+<div class="card">
+
+<h2>⚙️ Account Settings</h2>
+
+<!-- Mode Selection -->
+<label>Mode</label>
+<select>
+<option>{% if user.driver %}Driver Mode{% else %}Passenger Mode{% endif %}</option>
+
+</select>
+
+<br>
+
+
+
+<!-- Buttons -->
+<button class="login">{% if user.is_authenticated %}Change Mode{% else %}Login{% endif %}</button>
+
+
+<hr>
+
+<h4>Other Settings</h4>
+
+<ul>
+<li>Notification Settings</li>
+<li>Profile Settings</li>
+<li>Ride History</li>
+  <form method="post" action="{% url 'logout' %}" class="d-inline">
+                        {% csrf_token %}
+                        <button class="logout">Logout</button>
+    </form>
+</ul>
+
+
+
+</div>
+
+</div>
+
+{% endblock content %}
+
+
+

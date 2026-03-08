@@ -383,3 +383,115 @@ body{
 .ride-card button:hover{
     background: #1e7e34;
 }
+
+
+
+
+
+body{
+    background:#f3f4f6;
+    font-family: Arial, sans-serif;
+}
+
+/* Settings Container */
+.settings-container{
+    width: 420px;
+    margin: 60px auto;
+}
+
+/* Settings Card */
+.settings-card{
+    background:white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Settings Header */
+.settings-title{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* Setting Item */
+.setting-item{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* Last item remove border */
+.setting-item:last-child{
+    border-bottom:none;
+}
+
+/* Buttons */
+.btn{
+    padding:8px 16px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+/* Primary Button */
+.btn-primary{
+    background:#0d6efd;
+    color:white;
+}
+
+/* Danger Button */
+.btn-danger{
+    background:#dc3545;
+    color:white;
+}
+
+/* Select Box */
+select{
+    padding:8px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+/* Navbar link styling */
+.custom-nav{
+    position: relative;
+    font-weight: 500;
+    padding: 8px 14px;
+    color: #333 !important;
+    transition: color 0.3s ease;
+}
+
+/* Hover color */
+.custom-nav:hover{
+    color: #0d6efd !important;
+}
+
+/* Animated underline */
+.custom-nav::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #0d6efd;
+    transition: width 0.3s ease;
+}
+
+/* Expand underline on hover */
+.custom-nav:hover::after{
+    width: 100%;
+}

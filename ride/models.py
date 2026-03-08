@@ -37,3 +37,20 @@ class Ride(models.Model):
         return f"Ride {self.id} - {self.user.username} to {self.dropoff_location}"
     
 
+
+
+
+class Profile(models.Model):
+    
+    PROFILE_CHOICES = [
+        ('passenger', 'Passenger'),
+        ('driver', 'Driver'),
+    ]
+    
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.CharField(max_length=20, choices=PROFILE_CHOICES)
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    
+    def __str__(self):
+        return self.user.username

@@ -12,21 +12,33 @@
         <!-- Navigation items -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Left side navigation -->
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ride_list' %}">My Rides</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'ride_create' %}">Create Ride</a>
-                </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-                {% endif %}
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav me-auto">
+
+<li class="nav-item">
+<a class="nav-link custom-nav" href="{% url 'home' %}">Home</a>
+</li>
+
+{% if user.is_authenticated %}
+
+<li class="nav-item">
+<a class="nav-link custom-nav" href="{% url 'ride_list' %}">My Rides</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link custom-nav" href="{% url 'ride_create' %}">Create Ride</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link custom-nav" href="{% url 'dashboard' %}">Dashboard</a>
+</li>
+
+{% endif %}
+
+</ul>
+
+</div>
             
             <!-- Right side: Auth buttons -->
             <div class="d-flex align-items-center gap-2">
@@ -37,7 +49,7 @@
                         <i class="bi bi-search"></i> Search</button>
                 </form>
             
-                {% if user.is_authenticated %}
+               {% if user.is_authenticated %}
                     <span class="text-light me-2">Welcome, <strong>{{ user.username }}</strong></span>
                     <form method="post" action="{% url 'logout' %}" class="d-inline">
                         {% csrf_token %}
@@ -49,6 +61,12 @@
                     <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm">Login</a>
                     <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Register</a>
                 {% endif %}
+
+                <li class="nav-item">
+                    <a class="btn btn-outline-light bi bi-gear btn-sm" href="{% url 'settings' %}"></a>
+                    </a>
+                   
+                </li>
 
              
                 

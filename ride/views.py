@@ -91,6 +91,26 @@ class CompleteRideView(LoginRequiredMixin, View):
             return HttpResponse("Only the assigned driver can complete this ride.")
         
         
+class RideSettingsView(LoginRequiredMixin, TemplateView):
+    template_name = 'ride_settings.html'
+    
+    
+    
+    
+class ModeSwitchView(LoginRequiredMixin, View):
+    def post(self, request):
+        profile = request.user.profile
+        mode = request.POST.get('mode')
+        if mode in ['passenger', 'driver']:
+             profile.role = mode
+             profile.save()
+        return redirect('settings')
+    
+    
+
+     
+    
+        
         
         
         
@@ -112,3 +132,6 @@ class RideSearchView(LoginRequiredMixin, ListView):
             )
 
         return Ride.objects.all()
+
+
+

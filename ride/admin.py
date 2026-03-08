@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Driver, Ride
+from .models import Driver, Profile, Ride
 
 # Register your models here.
 
@@ -14,3 +14,10 @@ class RideAdmin(admin.ModelAdmin):
     list_display = ('user', 'driver', 'pickup_location', 'dropoff_location', 'fare', 'status', 'created_at')
     search_fields = ('user__username', 'driver__user__username', 'pickup_location', 'dropoff_location')
     list_filter = ('status', 'created_at')
+    
+    
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'role')
+    search_fields = ('user__username', 'role')
+    list_filter = ('role',)
