@@ -35,11 +35,21 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    
+    #thirdparty app
+    'rest_framework',
+    
+
+    
+    
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ride',
     'accounts',
     'dashboard',
+    'api',
+    
+    
     
 ]
 
@@ -129,3 +139,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'login'
 # when @login_required or LoginRequiredMixin redirects, use our named login URL
 LOGIN_URL = 'login'
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}

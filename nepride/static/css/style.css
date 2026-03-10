@@ -467,16 +467,22 @@ select{
 
 /* Navbar link styling */
 .custom-nav{
+    text-decoration-line: none;
+    text-decoration: none;
     position: relative;
     font-weight: 500;
     padding: 8px 14px;
-    color: #333 !important;
+    color: #f5ebeb !important;
     transition: color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* Hover color */
 .custom-nav:hover{
-    color: #0d6efd !important;
+    color: #19fd0d !important;
 }
 
 /* Animated underline */
@@ -487,11 +493,24 @@ select{
     bottom: 0;
     width: 0%;
     height: 2px;
-    background: #0d6efd;
+    background: #0dfd81;
     transition: width 0.3s ease;
 }
 
 /* Expand underline on hover */
 .custom-nav:hover::after{
     width: 100%;
+}
+
+
+
+
+
+
+.custom-nav {
+    text-decoration: none;
+}
+
+.custom-nav:hover {
+    text-decoration: none;
 }
